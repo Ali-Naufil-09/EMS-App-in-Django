@@ -1,0 +1,39 @@
+{%extends 'ems/base.html'%}
+{%block content%}
+
+
+<div class="col-md-4 justify-content-center mb-5">
+    <div class="card">
+
+
+<div class="card-header">  Compete Details of Employee   </div>
+<div class="card-body">   
+    <h3>{{employee.first_name}}  {{employee.last_name}}</h3>  
+    <hr>  
+    <p><strong>Email ID: </strong>       <span class="text-secondary">{{employee.email_id}} </span></p>
+    <p> <strong>Phone Number:</strong> <span class="text-secondary">{{employee.phone_number}}</p>
+    <p> <strong>Gender:</strong> <span class="text-secondary">{{employee.gender}}</p>
+    <p> <strong>Address:</strong> <span class="text-secondary">{{employee.address}}</p>   
+    <p> <strong>Date of birth:</strong> <span class="text-secondary">{{employee.dob}}</p>
+    <p> <strong>Joining Date:</strong> <span class="text-secondary">{{employee.joinning_date}}</p>
+    <p> <strong>Jobs Assigned:</strong> 
+    {%if employee.jobs.all%}   <!--checking if job is asssigned-->
+
+    <ul class="list-group">
+
+        {%for i in employee.jobs.all%}
+<li class="list-group-item">{{i.name}}</li>
+{%endfor%}
+
+    </ul> 
+
+{% endif %}   
+</p>
+</div>
+
+<div class="card-footer">
+    <a href="{% url 'home' %}" class="btn btn-sm btn-primary">Go Back</a>
+</div>
+</div>
+</div>
+{%endblock%}

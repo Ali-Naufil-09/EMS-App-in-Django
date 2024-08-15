@@ -1,0 +1,18 @@
+{%extends 'ems/base.html'%}
+{%block content%}
+
+{% for i in employees %}
+
+<div class="col-md-4">
+ <a class="card text-decoration-none text-black mb-4 hover_effect" href="{% url 'employee_detail' i.id%}">
+<div class="card-header">   {{i.first_name|capfirst}} {{i.last_name|capfirst}}  </div>
+<div class="card-body">    {{i.email_id}}     </div>
+ 
+</a> 
+</div> 
+
+    
+    
+    {% endfor %}
+
+{% endblock content%}    
